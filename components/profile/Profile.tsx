@@ -1,10 +1,10 @@
-import { Button, Card, CardActions, CardContent, Typography, Divider } from '@material-ui/core';
+import { Button, Card, CardActions, CardContent, Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import useTheme from '@material-ui/styles/useTheme';
 import { mdiAccountCardDetails } from '@mdi/js';
 import Icon from '@mdi/react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { ADMIN, USER } from '../../models/roles.types';
@@ -22,8 +22,7 @@ function Profile({...props}) {
     const classes = useStyles(useTheme());
 
     const user: User = props.user;
-
-    const list = [
+    const [list, setList] = useState([
         {name: 'Jhon', fone: '987654321'},
         {name: 'Mary', fone: '123456789'},
         {name: 'Jack', fone: '456789123'},
@@ -38,7 +37,7 @@ function Profile({...props}) {
         {name: 'Nabila', fone: '789123456'},
         {name: 'Ian', fone: '987654321'},
         {name: 'Daan', fone: '123456789'},
-    ];
+    ]);
 
     const [displayList, setDisplayList] = React.useState<Array<any>>([]);
     const [rowsPerPage, setRowsPerPage] = React.useState<number>(10);
@@ -60,7 +59,7 @@ function Profile({...props}) {
 
     return (
         <Grid container spacing={3}>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={12} md={3}>
                 <Card className={classes.card} style={{float: 'left'}}>
                     <CardContent>
                         <Typography gutterBottom variant='h5' component='h2' >
@@ -86,11 +85,11 @@ function Profile({...props}) {
                     </CardActions>
                 </Card>
             </Grid>
-            <Grid item xs={12} sm={8}>
+            <Grid item xs={12} sm={12} md={9}>
                 {
                     displayList.length &&
                     <DisplaySimpleList
-                        width={'50em'}
+                        width={'100%'}
                         list={displayList}
                         rowsPerPage={rowsPerPage}
                         page={page}

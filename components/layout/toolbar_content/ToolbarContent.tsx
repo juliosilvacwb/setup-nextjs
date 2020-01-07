@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import User from '../../../models/user.model';
 import UserService from '../../../services/user.service';
-import { useWindowSize } from '../../common/resize/resizeDetector';
+import { useWindowSize } from '../../../utils/resize/resizeDetector';
 import MenuAppBar from '../menu_app_bar/MenuAppBar';
 import MobileMenu from '../mobile_menu/MobileMenu';
 import useStyles from './ToolbarContentStyles';

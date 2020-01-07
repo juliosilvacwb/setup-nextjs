@@ -4,7 +4,6 @@ import User from '../../models/user.model';
 import { loadingsAction } from '../../state/actions/loadings';
 import { messagesAction } from '../../state/actions/messages.action';
 import MessageBuilder from '../common/message/model/builders/MessageBuilder';
-import { useWindowSize } from '../common/resize/resizeDetector';
 import Profile from '../profile/Profile';
 
 function Home({...props}) {

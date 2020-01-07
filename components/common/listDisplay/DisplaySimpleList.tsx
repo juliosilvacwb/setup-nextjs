@@ -9,8 +9,8 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useWindowSize } from '../../../utils/resize/resizeDetector';
 import Utils from '../../../utils/utils';
-import { useWindowSize } from '../resize/resizeDetector';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

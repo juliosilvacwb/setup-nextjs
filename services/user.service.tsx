@@ -25,7 +25,7 @@ export default class UserService {
                 const user: User = UserBuilder.builder()
                 .setId(1)
                 .setName(githubuser.name)
-                .setEmail(githubuser.email)
+                .setEmail(username)
                 .setImage(githubuser.avatar_url)
                 .addRole(USER)
                 .addModule(SALES_AND_MARKETING)
