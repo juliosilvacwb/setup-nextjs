@@ -22,7 +22,7 @@ function Profile({...props}) {
     const classes = useStyles(useTheme());
 
     const user: User = props.user;
-    const [list, setList] = useState([
+    const list = [
         {name: 'Jhon', fone: '987654321'},
         {name: 'Mary', fone: '123456789'},
         {name: 'Jack', fone: '456789123'},
@@ -37,7 +37,7 @@ function Profile({...props}) {
         {name: 'Nabila', fone: '789123456'},
         {name: 'Ian', fone: '987654321'},
         {name: 'Daan', fone: '123456789'},
-    ]);
+    ];
 
     const [displayList, setDisplayList] = React.useState<Array<any>>([]);
     const [rowsPerPage, setRowsPerPage] = React.useState<number>(10);
