@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography } from '@material-ui/core';
+import { Card, CardContent, CardHeader, IconButton, Typography } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -119,10 +119,6 @@ function DisplaySimpleList({ ...props }) {
                         <CardContent>
                             {
                                 keys.map((key: string, i: number) => {
-
-                                    if (sizes) {
-                                        sizeColumns = sizes[i];
-                                    }
 
                                     return (
                                         <div key={i}>
