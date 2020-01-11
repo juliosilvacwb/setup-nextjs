@@ -45,6 +45,7 @@ function Profile({...props}) {
         {id: 18, name: 'Daan', fone: '123456789'},
         {id: 19, name: 'Daan', fone: '123456789'},
         {id: 20, name: 'Daan', fone: '123456789'},
+        {id: 20, name: 'Daan', fone: '123456789'},
     ];
 
     const actions = [
@@ -57,11 +58,11 @@ function Profile({...props}) {
     const [displayList, setDisplayList] = React.useState<Array<any>>([]);
     const [rowsPerPage, setRowsPerPage] = React.useState<number>(10);
     const [page, setPage] = React.useState<number>(0);
-    const count = 20;
+    const count = 21;
     const sizes = [70, 30];
 
     React.useEffect(() => {
-        if (rowsPerPage  > 10) {
+        if (rowsPerPage  > 20) {
             setDisplayList(list);
         }
         if (page === 0 && rowsPerPage  === 10) {
@@ -69,6 +70,9 @@ function Profile({...props}) {
         }
         if (page === 1 && rowsPerPage  === 10) {
             setDisplayList(list.splice(10, 21));
+        }
+        if (page === 2 && rowsPerPage  === 10) {
+            setDisplayList(list.splice(20, 31));
         }
     }, [page, rowsPerPage]);
 
@@ -110,7 +114,7 @@ function Profile({...props}) {
                         rowsPerPage={rowsPerPage}
                         page={page}
                         setRowsPerPage={setRowsPerPage}
-                        setPage={setPage}
+                        setPage={setPage}numberOfPage
                         count={count}
                         sizes={sizes}
                         actions={actions}

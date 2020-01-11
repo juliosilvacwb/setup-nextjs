@@ -42,20 +42,16 @@ function CardList({...props}) {
                     }
                     {
                         props.keys.map((key: string, i: number) => {
-                            if (hide.includes(key)) {
-                                return '';
-                            } else {
-                                return (
-                                    <div key={i}>
-                                        <Typography variant='subtitle2'>
-                                            {Utils.firstUppercase(key)}
-                                        </Typography>
-                                        <Typography variant='subtitle1'  color='textSecondary'>
-                                            {props.line[key]}
-                                        </Typography>
-                                    </div>
-                                );
-                            }
+                            return (
+                                <div key={i}>
+                                    <Typography variant='subtitle2'>
+                                        {Utils.firstUppercase(key)}
+                                    </Typography>
+                                    <Typography variant='subtitle1'  color='textSecondary'>
+                                        {props.line[key]}
+                                    </Typography>
+                                </div>
+                            );
                         })
                     }
                 </CardContent>

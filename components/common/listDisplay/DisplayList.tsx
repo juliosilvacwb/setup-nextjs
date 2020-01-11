@@ -5,6 +5,7 @@ import { useWindowSize } from '../../../utils/resize/resizeDetector';
 import Utils from '../../../utils/utils';
 import CardList from './CardList';
 import CustomToolbarSelect from './CustomToolbarSelect';
+import DisplayCardList from './DisplayCardList';
 
 /**
  *
@@ -54,6 +55,8 @@ function DisplayList({ ...props }) {
         props.setPage(0);
     };
 
+    const rowsPerPageOptions = [10, 25, 50, 100];
+
     const options: any = {
         filterType: props.filterType ? props.filterType : 'textField',
         selectableRows: props.selectableRows ? props.selectableRows : 'multiple',
@@ -66,7 +69,7 @@ function DisplayList({ ...props }) {
         print: props.print ? props.print : true,
         download: props.download ? props.download : true,
         rowsPerPage: 10,
-        rowsPerPageOptions: [10, 25, 50, 100],
+        rowsPerPageOptions,
         downloadOptions: {filename: (title ? `${ title.replace(/\s/g, '') }.csv` : 'tableDownload.csv') , separator: ';'},
         customToolbarSelect,
         onChangePage: handleChangePage,
@@ -127,13 +130,15 @@ function DisplayList({ ...props }) {
             />
         </ div>
         :
-        <div>
-            {
-                props.list.map((line: any, index: number) => {
-                    return <CardList line={line} keys={keys} key={index} actions={props.actions} hide={hide}/>;
-                })
-            }
-        </div>
+        <DisplayCardList page={props.page}
+            count={props.count}
+            list={props.list}
+            keys={keys}
+            actions={props.actions}
+            setPage={handleChangePage}
+            setRowPerPag={handleChangeRowsPerPage}
+            rowsPerPage={props.rowsPerPage}
+            rowsPerPageOptions={rowsPerPageOptions}/>
     );
 }
 
