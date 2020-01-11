@@ -1,9 +1,12 @@
 import { FormControl, IconButton, InputLabel, MenuItem, Select } from '@material-ui/core';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import { useTranslation } from 'react-i18next';
 import CardList from './CardList';
 
 function DisplayCardList({...props}) {
+
+    const { t } = useTranslation();
 
     const page = props.page;
     const count = props.count;
@@ -46,7 +49,7 @@ function DisplayCardList({...props}) {
             <div style={{width: '100%'}}>
                 <div style={{float: 'left'}}>
                     <FormControl>
-                        <InputLabel id='select-row-by-page'>Row per page</InputLabel>
+                        <InputLabel id='select-row-by-page'>{t('listDisplay.textLabels.pagination.rowsPerPageMobile')}</InputLabel>
                         <Select value={rowsPerPage} onChange={handleChangeRowPerPage} style={{width: '8em'}}>
                             {
                                 rowsPerPageOptions.map((option: number) => <MenuItem value={option} key={option}>{option}</MenuItem>)
@@ -55,7 +58,7 @@ function DisplayCardList({...props}) {
                     </FormControl>
                 </div>
                 <div style={{float: 'right'}}>
-                    { `${start} - ${end()} of ${count}` }
+                    { `${start} - ${end()} ${t('listDisplay.textLabels.pagination.displayRows')} ${count}` }
                     <IconButton disabled={page === 0} onClick={() => {
                         setPage(page - 1);
                     }}>

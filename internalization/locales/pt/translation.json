@@ -36,6 +36,44 @@
     "sales_and_marketing": {
         "sales_and_marketing_title": "Página de vendas e marketing."
     },
+    "listDisplay": {
+        "tableDownload": "download",
+        "textLabels": {
+            "body": {
+              "noMatch": "Desculpe, nenhum registro encontrado.",
+              "toolTip": "Ordenação",
+              "columnHeaderTooltip": "Ordenar por"
+            },
+            "pagination": {
+              "next": "Próxima página",
+              "previous": "Página anterior",
+              "rowsPerPage": "Linhas por página:",
+              "rowsPerPageMobile": "N por página:",
+              "displayRows": "de"
+            },
+            "toolbar": {
+              "search": "Procurar",
+              "downloadCsv": "Download CSV",
+              "print": "Imprimir",
+              "viewColumns": "Visualizar Colunas",
+              "filterTable": "Filtrar"
+            },
+            "filter": {
+              "all": "Todos",
+              "title": "FILTROS",
+              "reset": "RESET"
+            },
+            "viewColumns": {
+              "title": "Mostrar colunas",
+              "titleAria": "Mostrar/Esconder colunas da tabela"
+            },
+            "selectedRows": {
+              "text": "linha(s) selecionada(s)",
+              "delete": "Excluir",
+              "deleteAria": "Excluir linhas selecionadas"
+            }
+        }
+    },
     "unauthorized_module": "Modulo não autorizado.",
     "loading": "Carregando..."
 }

@@ -1,6 +1,7 @@
 import MUIDataTable from 'mui-datatables';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useWindowSize } from '../../../utils/resize/resizeDetector';
 import Utils from '../../../utils/utils';
 import CardList from './CardList';
@@ -20,6 +21,8 @@ import DisplayCardList from './DisplayCardList';
  * @param setPage
  */
 function DisplayList({ ...props }) {
+    const { t } = useTranslation();
+
     const size = useWindowSize();
     const width = props.width;
     const title = props.title;
@@ -70,45 +73,45 @@ function DisplayList({ ...props }) {
         download: props.download ? props.download : true,
         rowsPerPage: 10,
         rowsPerPageOptions,
-        downloadOptions: {filename: (title ? `${ title.replace(/\s/g, '') }.csv` : 'tableDownload.csv') , separator: ';'},
+        downloadOptions: {filename: (title ? `${ title.replace(/\s/g, '') }.csv` : `${t('listDisplay.tableDownload')}.csv`) , separator: ';'},
         customToolbarSelect,
         onChangePage: handleChangePage,
         onChangeRowsPerPage: handleChangeRowsPerPage,
         serverSide: true,
         textLabels: {
             body: {
-              noMatch: 'Sorry, no matching records found',
-              toolTip: 'Sort',
-              columnHeaderTooltip: (column) => `Sort for ${column.label}`
+              noMatch: t('listDisplay.textLabels.body.noMatch'),
+              toolTip: t('listDisplay.textLabels.body.toolTip'),
+              columnHeaderTooltip: (column) => `${t('listDisplay.textLabels.body.columnHeaderTooltip')} ${column.label}`
             },
             pagination: {
-              next: 'Next Page',
-              previous: 'Previous Page',
-              rowsPerPage: 'Rows per page:',
-              displayRows: 'of',
+              next: t('listDisplay.textLabels.pagination.previous'),
+              previous: t('listDisplay.textLabels.pagination.next'),
+              rowsPerPage: t('listDisplay.textLabels.pagination.rowsPerPage'),
+              displayRows: t('listDisplay.textLabels.pagination.displayRows'),
             },
             toolbar: {
-              search: 'Search',
-              downloadCsv: 'Download CSV',
-              print: 'Print',
-              viewColumns: 'View Columns',
-              filterTable: 'Filter Table',
+              search: t('listDisplay.textLabels.toolbar.search'),
+              downloadCsv: t('listDisplay.textLabels.toolbar.downloadCsv'),
+              print: t('listDisplay.textLabels.toolbar.print'),
+              viewColumns: t('listDisplay.textLabels.toolbar.viewColumns'),
+              filterTable: t('listDisplay.textLabels.toolbar.filterTable'),
             },
             filter: {
-              all: 'All',
-              title: 'FILTERS',
-              reset: 'RESET',
+              all: t('listDisplay.textLabels.filter.all'),
+              title: t('listDisplay.textLabels.filter.title'),
+              reset: t('listDisplay.textLabels.filter.reset'),
             },
             viewColumns: {
-              title: 'Show Columns',
-              titleAria: 'Show/Hide Table Columns',
+              title: t('listDisplay.textLabels.viewColumns.title'),
+              titleAria: t('listDisplay.textLabels.viewColumns.titleAria'),
             },
             selectedRows: {
-              text: 'row(s) selected',
-              delete: 'Delete',
-              deleteAria: 'Delete Selected Rows',
+              text: t('listDisplay.textLabels.selectedRows.text'),
+              delete: t('listDisplay.textLabels.selectedRows.delete'),
+              deleteAria: t('listDisplay.textLabels.selectedRows.deleteAria'),
             },
-          }
+        }
     };
 
     if (props.customSearch ) {
