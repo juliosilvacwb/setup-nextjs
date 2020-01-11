@@ -4,7 +4,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useWindowSize } from '../../../utils/resize/resizeDetector';
 import Utils from '../../../utils/utils';
-import CardList from './CardList';
 import CustomToolbarSelect from './CustomToolbarSelect';
 import DisplayCardList from './DisplayCardList';
 
@@ -53,6 +52,18 @@ function DisplayList({ ...props }) {
         props.setPage(newPage);
     };
 
+    let timeout = null;
+    const search = !props.search ? null : (value: string) => {
+        clearTimeout(timeout);
+
+        // Make a new timeout set to go off in 1000ms (1 second)
+        timeout = setTimeout(() => {
+            if (value) {
+                props.search(value);
+            }
+        }, 1000);
+    };
+
     const handleChangeRowsPerPage = (numberOfRows: number) => {
         props.setRowsPerPage(numberOfRows);
         props.setPage(0);
@@ -67,7 +78,6 @@ function DisplayList({ ...props }) {
         count: props.count,
         sort: props.sort ? props.sort : true,
         filter: props.filter ? props.filter : true,
-        search: props.search ? props.search : true,
         sortFilterList: props.sortFilterList ? props.sortFilterList : true,
         print: props.print ? props.print : true,
         download: props.download ? props.download : true,
@@ -75,6 +85,8 @@ function DisplayList({ ...props }) {
         rowsPerPageOptions,
         downloadOptions: {filename: (title ? `${ title.replace(/\s/g, '') }.csv` : `${t('listDisplay.tableDownload')}.csv`) , separator: ';'},
         customToolbarSelect,
+        search: props.search ? true : false,
+        onSearchChange: search,
         onChangePage: handleChangePage,
         onChangeRowsPerPage: handleChangeRowsPerPage,
         serverSide: true,
@@ -141,7 +153,9 @@ function DisplayList({ ...props }) {
             setPage={handleChangePage}
             setRowPerPag={handleChangeRowsPerPage}
             rowsPerPage={props.rowsPerPage}
-            rowsPerPageOptions={rowsPerPageOptions}/>
+            rowsPerPageOptions={rowsPerPageOptions}
+            search={search}
+        />
     );
 }
 

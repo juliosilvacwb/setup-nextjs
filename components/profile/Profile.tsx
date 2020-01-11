@@ -49,8 +49,8 @@ function Profile({...props}) {
     ];
 
     const actions = [
-        { icon: <AddIcon />, label: 'Adicionar', action: (selectedIdRows: [], selectedObjects?: []) => { console.log(selectedIdRows); }},
-        { icon: <DeleteIcon />, label: 'Deletar', action: (selectedIdRows: [], selectedObjects?: []) => { console.log(selectedIdRows); }}
+        { icon: <AddIcon />, label: 'Adicionar', action: (selectedIdRows: [], selectedObjects?: []) => { alert(selectedIdRows); }},
+        { icon: <DeleteIcon />, label: 'Deletar', action: (selectedIdRows: [], selectedObjects?: []) => { alert(selectedIdRows); }}
     ];
 
     const hide = ['id'];
@@ -60,6 +60,7 @@ function Profile({...props}) {
     const [page, setPage] = React.useState<number>(0);
     const count = 21;
     const sizes = [70, 30];
+    const search = (value: string) => { alert(value);};
 
     React.useEffect(() => {
         if (rowsPerPage  > 20) {
@@ -118,7 +119,9 @@ function Profile({...props}) {
                         count={count}
                         sizes={sizes}
                         actions={actions}
-                        hide={hide}/>
+                        hide={hide}
+                        search={search}
+                    />
                 }
             </Grid>
         </Grid>
