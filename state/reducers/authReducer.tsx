@@ -4,7 +4,7 @@ import { AUTHENTICATE, DEAUTHENTICATE, RESTORE_AUTH_STATE } from '../actionsCons
 
 const initialState = im.Map({user: new User()});
 
-const authReducer = (state: any = initialState, action: any) => {
+const authReducer = (state = im.Map(), action: any) => {
     switch (action.type) {
        case DEAUTHENTICATE:
            return state.merge({
@@ -25,7 +25,7 @@ const authReducer = (state: any = initialState, action: any) => {
            });
 
        default:
-            return state;
+            return state.merge(initialState);
    }
 };
 

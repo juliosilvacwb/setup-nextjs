@@ -1,16 +1,26 @@
-import { blueGrey, grey, orange } from '@material-ui/core/colors';
+import { red } from '@material-ui/core/colors';
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
   palette: {
+    common: {
+      black: '#333',
+      white: '#fff',
+    },
     primary: {
-      main: blueGrey[900],
+      main: '#2C65D6',
+      dark: '#333',
     },
     secondary: {
-      main: orange[500],
+      main: '#19857b',
+      dark: '#333',
+    },
+    error: {
+      main: red.A400,
     },
     background: {
-      default: grey[50],
+      default: '#F2F2F2',
+      paper: '#fff',
     },
   },
 });

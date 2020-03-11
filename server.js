@@ -4,7 +4,7 @@ const { parse } = require('url');
 const next = require('next');
 const express = require('express');
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3002;
 const app = next({ dev: process.env.NODE_ENV !== 'production' })
 const handle = app.getRequestHandler()
 

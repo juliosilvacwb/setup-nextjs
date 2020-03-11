@@ -1,9 +1,9 @@
-import { Map } from 'immutable';
+import * as im from 'immutable';
 import { LOADING, LOADING_LOGIN } from '../actionsConstants';
 
-const initialState = Map({ activeLoadings: 0, loadingLogin: false });
+const initialState = im.Map({ activeLoadings: 0, loadingLogin: false });
 
-function loadingsReducer(state = initialState, action: any) {
+function loadingsReducer(state = im.Map(), action: any) {
     switch (action.type) {
         case LOADING:
             const activeLoadings = state.get('activeLoadings') + action.incrementLoading;
@@ -11,7 +11,7 @@ function loadingsReducer(state = initialState, action: any) {
         case LOADING_LOGIN:
             return state.merge({ loadingLogin: action.loadingLogin });
         default:
-            return state;
+            return state.merge(initialState);
     }
 }
 
