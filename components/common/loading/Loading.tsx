@@ -26,7 +26,7 @@ function Loading({ ...props }) {
 
         <div className={classes.box}>
             <CircularProgress size='6em' />
-            <Typography style={{ padding: '1em' }} >{t('loading')}</Typography>
+            <Typography style={{ padding: '1em', color: '#FFF' }} >{t('loading')}</Typography>
         </div>
 
     </Modal>

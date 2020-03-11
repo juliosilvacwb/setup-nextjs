@@ -28,7 +28,7 @@ const MyApp = ({ Component, pageProps, store }) => {
                 <ThemeProvider theme={theme}>
                     <CssBaseline />
                     <Head>
-                        <title>Default System NextJS</title>
+                        <title>Setup NextJS</title>
                         <meta
                             name='description'
                             content='Minimum system implemented for a WEB application.

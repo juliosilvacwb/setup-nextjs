@@ -1,4 +1,5 @@
 import { Button, Container } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import User from '../../models/user.model';
 import { loadingsAction } from '../../state/actions/loadings';
@@ -7,15 +8,16 @@ import MessageBuilder from '../common/message/model/builders/MessageBuilder';
 import Profile from '../profile/Profile';
 
 function Home({...props}) {
+    const { t } = useTranslation();
 
     return (
         <>
-          <div style={{width: '100%'}}>
-            <Button onClick={() => {props.loadMessage(); }}>
-                Show message
+          <div style={{width: '100%', marginBottom: '1em'}}>
+            <Button onClick={() => {props.loadMessage(); }}  variant='contained' color='primary' style={{marginRight: '1em'}}>
+                { t('showMessage') }
             </Button>
-            <Button onClick={() => { props.incrementLoading(); }}>
-                Show loading
+            <Button onClick={() => { props.incrementLoading(); }} variant='contained' color='secondary'>
+                { t('showLoading') }
             </Button>
           </div>
           <Profile />
@@ -34,7 +36,7 @@ function mapDispatchToProps(dispatch: any) {
             dispatch(() => { dispatch(
                 messagesAction([
                     MessageBuilder.builder()
-                        .setVariant('info')
+                        .setVariant('warning')
                         .setSecondsTimeout(3)
                         .setMessage('Mensagem de teste')
                         .build()

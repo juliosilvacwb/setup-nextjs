@@ -1,6 +1,6 @@
 {
     "app_bar": {
-        "label": "Aplicação padrão NextJS",
+        "label": "Setup NextJS",
         "search": "Procurar..."
     },
     "profile": {
@@ -75,5 +75,12 @@
         }
     },
     "unauthorized_module": "Modulo não autorizado.",
-    "loading": "Carregando..."
+    "loading": "Carregando...",
+    "showMessage": "Mostrar mensagem",
+    "showLoading": "Mostrar carregamento",
+    "users": "Usuários",
+    "delete": "Excluir",
+    "add": "Adicionar",
+    "name": "Nome",
+    "phone": "Fone"
 }

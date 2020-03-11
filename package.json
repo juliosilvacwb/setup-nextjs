@@ -1,5 +1,5 @@
 {
-  "name": "next-default",
+  "name": "setup-nextjs",
   "version": "0.1.0",
   "description": "Minimum system implemented for a WEB application. Template with the minimum necessary to start a react frontend project.",
   "private": true,
@@ -74,7 +74,7 @@
     "jest": "^24.9.0",
     "styled-components": "^4.3.2",
     "ts-jest": "^24.2.0",
-    "tslint": "^5.20.0",
+    "tslint": "^5.20.1",
     "typescript": "^3.6.3"
   }
 }

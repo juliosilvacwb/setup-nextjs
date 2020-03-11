@@ -24,7 +24,7 @@ function mobileMenu({...props}) {
             onClose={props.handleMobileMenuClose} >
             <MenuItem>
                 <IconButton aria-label='show 4 new mails' color='inherit'>
-                    <Badge badgeContent={4} color='secondary'>
+                    <Badge badgeContent={4} color='error'>
                         <MailIcon />
                     </Badge>
                 </IconButton>
@@ -32,7 +32,7 @@ function mobileMenu({...props}) {
             </MenuItem>
             <MenuItem>
                 <IconButton aria-label='show 11 new notifications' color='inherit'>
-                    <Badge badgeContent={11} color='secondary'>
+                    <Badge badgeContent={11} color='error'>
                         <NotificationsIcon />
                     </Badge>
                 </IconButton>
@@ -63,9 +63,3 @@ function mobileMenu({...props}) {
 }
 
 export default mobileMenu;
-
-// handleProfileMenuOpen
-// mobileMoreAnchorEl
-// mobileMenuId
-// isMobileMenuOpen
-// handleMobileMenuClose

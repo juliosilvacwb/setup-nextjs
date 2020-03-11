@@ -15,7 +15,7 @@ import DisplayList from '../common/listDisplay/DisplayList';
 
 const useStyles = makeStyles({
     card: {
-      maxWidth: 345,
+      width: '100%',
     },
   });
 
@@ -25,32 +25,34 @@ function Profile({...props}) {
 
     const user: User = props.user;
     const list = [
-        {id: 1, name: 'Jhon', fone: '987654321'},
-        {id: 2, name: 'Mary', fone: '123456789'},
-        {id: 3, name: 'Jack', fone: '456789123'},
-        {id: 4, name: 'Steve', fone: '789123456'},
-        {id: 5, name: 'Abbey', fone: '987654321'},
-        {id: 6, name: 'Alaina', fone: '123456789'},
-        {id: 7, name: 'Eagle', fone: '456789123'},
-        {id: 8, name: 'Earl', fone: '789123456'},
-        {id: 9, name: 'Tabby', fone: '987654321'},
-        {id: 10, name: 'Qadir', fone: '123456789'},
-        {id: 11, name: 'Naak', fone: '456789123'},
-        {id: 12, name: 'Nabila', fone: '789123456'},
-        {id: 13, name: 'Ian', fone: '987654321'},
-        {id: 14, name: 'Daan', fone: '123456789'},
-        {id: 15, name: 'Daan', fone: '123456789'},
-        {id: 16, name: 'Daan', fone: '123456789'},
-        {id: 17, name: 'Daan', fone: '123456789'},
-        {id: 18, name: 'Daan', fone: '123456789'},
-        {id: 19, name: 'Daan', fone: '123456789'},
-        {id: 20, name: 'Daan', fone: '123456789'},
-        {id: 20, name: 'Daan', fone: '123456789'},
+        {id: 1, name: 'Jhon', phone: '987654321'},
+        {id: 2, name: 'Mary', phone: '123456789'},
+        {id: 3, name: 'Jack', phone: '456789123'},
+        {id: 4, name: 'Steve', phone: '789123456'},
+        {id: 5, name: 'Abbey', phone: '987654321'},
+        {id: 6, name: 'Alaina', phone: '123456789'},
+        {id: 7, name: 'Eagle', phone: '456789123'},
+        {id: 8, name: 'Earl', phone: '789123456'},
+        {id: 9, name: 'Tabby', phone: '987654321'},
+        {id: 10, name: 'Qadir', phone: '123456789'},
+        {id: 11, name: 'Naak', phone: '456789123'},
+        {id: 12, name: 'Nabila', phone: '789123456'},
+        {id: 13, name: 'Ian', phone: '987654321'},
+        {id: 14, name: 'Daan', phone: '123456789'},
+        {id: 15, name: 'Daan', phone: '123456789'},
+        {id: 16, name: 'Daan', phone: '123456789'},
+        {id: 17, name: 'Daan', phone: '123456789'},
+        {id: 18, name: 'Daan', phone: '123456789'},
+        {id: 19, name: 'Daan', phone: '123456789'},
+        {id: 20, name: 'Daan', phone: '123456789'},
+        {id: 20, name: 'Daan', phone: '123456789'},
     ];
 
+    const headers = [t('name'), t('phone')];
+
     const actions = [
-        { icon: <AddIcon />, label: 'Adicionar', action: (selectedIdRows: [], selectedObjects?: []) => { alert(selectedIdRows); }},
-        { icon: <DeleteIcon />, label: 'Deletar', action: (selectedIdRows: [], selectedObjects?: []) => { alert(selectedIdRows); }}
+        { icon: <AddIcon />, label: t('add'), action: (selectedIdRows: [], selectedObjects?: []) => { alert(selectedIdRows); } },
+        { icon: <DeleteIcon />, label: t('delete'), action: (selectedIdRows: [], selectedObjects?: []) => { alert(selectedIdRows); } }
     ];
 
     const hide = ['id'];
@@ -60,7 +62,7 @@ function Profile({...props}) {
     const [page, setPage] = React.useState<number>(0);
     const count = 21;
     const sizes = [70, 30];
-    const search = (value: string) => { alert(value);};
+    const search = (value: string) => { alert(value); };
 
     React.useEffect(() => {
         if (rowsPerPage  > 20) {
@@ -109,7 +111,7 @@ function Profile({...props}) {
                 {
                     displayList.length &&
                     <DisplayList
-                        title={'Users'}
+                        title={t('users')}
                         width={'100%'}
                         list={displayList}
                         rowsPerPage={rowsPerPage}
@@ -121,6 +123,7 @@ function Profile({...props}) {
                         actions={actions}
                         hide={hide}
                         search={search}
+                        headers={headers}
                     />
                 }
             </Grid>

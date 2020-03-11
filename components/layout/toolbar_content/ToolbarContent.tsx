@@ -85,13 +85,13 @@ function ToolbarContent({...props}) {
                     <Button color='inherit' onClick={handleLanguageOpen} style={{padding: '0em'}}>{language}</Button>
 
                     <IconButton aria-label='show 4 new mails' color='inherit' className={classes.appBarButton}>
-                        <Badge badgeContent={4} color='secondary'>
+                        <Badge badgeContent={4} color='error'>
                             <MailIcon />
                         </Badge>
                     </IconButton>
 
                     <IconButton aria-label='show 17 new notifications' color='inherit' className={classes.appBarButton}>
-                        <Badge badgeContent={17} color='secondary'>
+                        <Badge badgeContent={17} color='error'>
                             <NotificationsIcon />
                         </Badge>
                     </IconButton>

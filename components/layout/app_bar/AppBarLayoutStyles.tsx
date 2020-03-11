@@ -5,6 +5,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     appBar: {
+      backgroundColor: theme.palette.common.black,
       zIndex: theme.zIndex.drawer + 2,
       transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,

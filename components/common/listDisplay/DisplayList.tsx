@@ -37,7 +37,7 @@ function DisplayList({ ...props }) {
         return Object.keys(selectedRows.lookup);
     }
 
-    const columns = keys.map((key: string) => Utils.firstUppercase(key));
+    const columns = props.headers ? props.headers : keys.map((key: string) => Utils.firstUppercase(key));
     const data = props.list.map((obj: any) => keys.map((key: string) => obj[key]));
 
     const customToolbarSelect = (props.actions  && props.actions.length > 0)
