@@ -1,4 +1,4 @@
-# System Default NextJS
+# Setup NextJS
 
 Minimum system implemented for a WEB application.
 
