@@ -11,7 +11,13 @@ import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { ADMIN, USER } from '../../models/roles.types';
 import User from '../../models/user.model';
+import ZAutocomplete, { AutocompleteOption } from '../common/autocomplete/zautocomplete';
+import ZDropzone from '../common/dropzone/ZDropzone';
+import ZInputDate from '../common/input.date/ZInputDate';
+import ZInputMoney from '../common/input.money/ZInputMoney';
+import ZInput from '../common/input/ZInput';
 import DisplayList from '../common/listDisplay/DisplayList';
+import ZTextarea from '../common/textarea/ZTextarea';
 
 const useStyles = makeStyles({
     card: {
@@ -63,6 +69,17 @@ function Profile({...props}) {
     const count = 21;
     const sizes = [70, 30];
     const search = (value: string) => { alert(value); };
+
+    const autocompleteProps = {
+        options: [
+          { value: 'SINGLE', label: t('enums.typeTransaction.SINGLE') },
+          { value: 'RECURRING', label: t('enums.typeTransaction.RECURRING') },
+          { value: 'TRANSFER', label: t('enums.category.TRANSFER') },
+        ],
+        getOptionLabel: (option: AutocompleteOption) => option.label
+      };
+
+    const [textarea, setTextarea] = useState(undefined);
 
     React.useEffect(() => {
         if (rowsPerPage  > 20) {
@@ -127,6 +144,26 @@ function Profile({...props}) {
                     />
                 }
             </Grid>
+
+            <Grid item xs={3}>
+                <ZInputDate locale={props.locale} invalidDateMessage={t('invalidDateMessage')} onChange={(value: string) => console.log(value)} />
+            </Grid>
+            <Grid item xs={3}>
+                <ZInputMoney currencySimbol={t('currencySimbol')} onChange={(value: string) => console.log(value)} />
+            </Grid>
+            <Grid item xs={3}>
+                <ZInput onChange={(value: string) => console.log(value)} />
+            </Grid>
+            <Grid item xs={3}>
+                <ZAutocomplete autocompleteProps={autocompleteProps} onChange={(value: string) => console.log(value)} />
+            </Grid>
+            <Grid item xs={12}>
+                <ZDropzone files={[]} />
+            </Grid>
+            <Grid item xs={12}>
+                <ZTextarea value={textarea} onChange={(value: string) => setTextarea(value)} placeholder={'entre com o texto'} label={'Texto area'} />
+            </Grid>
+
         </Grid>
     );
 }
